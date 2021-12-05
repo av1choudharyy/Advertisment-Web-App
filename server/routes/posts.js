@@ -43,7 +43,7 @@ router.delete("/:postId", validateToken, async(req,res) =>{
         }
     })
 
-    res.json("Comment Deleted")
+    res.json("Post Deleted")
 })
 
 module.exports = router;
