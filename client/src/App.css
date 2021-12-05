@@ -55,6 +55,7 @@ body {
   border-bottom-right-radius: 10px;
 }
 
+
 /* CREATE POST PAGE CSS */
 
 .createPostPage {
@@ -129,7 +130,7 @@ span {
   align-items: center;
 }
 .navbar a {
-  margin-left: 20px;
+  margin: 20px;
   text-decoration: none;
   color: white;
 }
@@ -163,6 +164,7 @@ span {
   display: grid;
   place-items: center;
 }
+
 
 .rightSide {
   flex: 50%;
@@ -229,6 +231,7 @@ button {
   font-size: 25px;
 }
 
+
 /* LOGIN */
 
 .loginContainer {
@@ -244,7 +247,7 @@ button {
 button {
   width: 200px;
   height: 50px;
-  border-radius: 8px;
+  border-radius: 100px;
   border: none;
   margin: 10px;
 }
@@ -252,8 +255,18 @@ button {
 .loginContainer button {
   background-color: dodgerblue;
   color: white;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .loginContainer input {
   border: 2px solid dodgerblue;
+}
+
+.logout{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 100px;
+  margin: 10px;
 }

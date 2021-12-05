@@ -19,6 +19,10 @@ function Post() {
     axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
       setComments(response.data);
     });
+    
+    if(!localStorage.getItem("accessToken")){
+      navigate('/login')
+    }
   }, []);
 
   const addComment = () => {
@@ -36,6 +40,7 @@ function Post() {
           console.log(response.data.error)
         }
         else{
+          console.log(response)
           const commentToAdd = { commentBody: newComment, username: response.data.username };
           setComments([...comments, commentToAdd]);
           setNewComment("");
@@ -44,17 +49,17 @@ function Post() {
       });
   };
 
-  const deleteComment= (id)=>{
-      axios.delete(`http://localhost:3001/comments/${id}`,{headers: {
-        accessToken: localStorage.getItem('accessToken')
-      }}).then(() =>{
-        setComments(
-          comments.filter((val)=>{
-            return val.id !== id
-          })
-        )
-      })
-  } 
+  // const deleteComment= (id)=>{
+  //     axios.delete(`http://localhost:3001/comments/${id}`,{headers: {
+  //       accessToken: localStorage.getItem('accessToken')
+  //     }}).then(() =>{
+  //       setComments(
+  //         comments.filter((val)=>{
+  //           return val.id !== id
+  //         })
+  //       )
+  //     })
+  // } 
 
   const editPost= (option) => {
     if(option === "title"){
@@ -100,9 +105,10 @@ function Post() {
           }}>
             {postObject.postText}</div>
           <div className="footer">{postObject.username}
-            {authState.username === postObject.username && (
-              <button onClick={ () =>{deletePost(postObject.id)}}>Delete</button>)
-            }
+              {authState.username === postObject.username && (
+                <button onClick={ () =>{deletePost(postObject.id)}}>Delete</button>)
+              }
+            
           </div>    
         </div>
       </div>
@@ -126,7 +132,10 @@ function Post() {
                 {comment.commentBody}
                 <label> Username : {comment.username}</label>
                 {authState.username === comment.username &&(
-                  <button onClick={ () =>{deleteComment(comment.id)}}>X</button>)}
+                  <label onClick={ () =>{
+                    //deleteComment(comment.id)
+                  }}/>
+                  )}
               </div>
             );
           })}
