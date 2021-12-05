@@ -1,16 +1,14 @@
 import React from 'react'
 import axios from "axios";
-import { useEffect , useState, useContext} from "react";
+import { useEffect , useState} from "react";
 import {useNavigate} from 'react-router-dom';
-import {AuthContext} from "../helpers/AuthContext"
 function Home() {
 
-    const {authState} = useContext(AuthContext) 
     const [listOfPosts, setListOfPosts] = useState([]);
     let navigate = useNavigate( )
     useEffect(() => {
       
-      if(!authState.status){
+      if(!localStorage.getItem("accessToken")){
         navigate('/login')
       }
       else{
