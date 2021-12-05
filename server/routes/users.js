@@ -29,7 +29,7 @@ router.post("/login", async (req, res) => {
             else {
               const accessToken = sign({username: user.username, id: user.id},
                 "Abhishek")
-              res.json(accessToken);
+              res.json({token: accessToken, username: username,id: user.id});
             }
         });
     }
