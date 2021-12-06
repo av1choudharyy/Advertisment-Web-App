@@ -71,6 +71,18 @@ Start the server
 | Light Color | ![#e6ceff](https://via.placeholder.com/10/e6ceff?text=+) ##e6ceff |
 
 
+
+
+## Deployment
+
+The web app server is deployed on Heroku and the client is deployed on Netlify.
+Also the web app is live on my own website **temporarily**.
+
+[Website](https://www.choudhary.codes)&emsp;[Netlify](https://tender-swanson-38be36.netlify.app)
+
+
+
+
 ## Screenshots
 
 ![](Screenshots/registration.png)
@@ -84,12 +96,5 @@ Start the server
 
 
 
-
-## Deployment
-
-The web app server is deployed on Heroku and the client is deployed on Netlify.
-Also the web app is live on my own website **temporarily**.
-
-[Website](https://www.choudhary.codes)&emsp;[Netlify](https://tender-swanson-38be36.netlify.app)
 
 
