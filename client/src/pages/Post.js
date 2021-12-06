@@ -64,19 +64,25 @@ function Post() {
   const editPost= (option) => {
     if(option === "title"){
       let newTitle = prompt("Enter new title:")
-      axios.put("http://localhost:3001/posts/title",
-                  {newTitle: newTitle, id: id},
-                    {headers: {accessToken: localStorage.getItem('accessToken')
-                }})
-      setPostObject({...postObject, title: newTitle})
+      if(!!newTitle){
+        axios.put("http://localhost:3001/posts/title",
+                    {newTitle: newTitle, id: id},
+                      {headers: {accessToken: localStorage.getItem('accessToken')
+                  }})
+        setPostObject({...postObject, title: newTitle})
+      }
+      else alert("Enter a not null value")
     }
     else{
       let newPostText = prompt("Enter new post body:")
-      axios.put("http://localhost:3001/posts/postText",
+      if(!!newPostText){
+        axios.put("http://localhost:3001/posts/postText",
                   {newText: newPostText, id: id},
                     {headers: {accessToken: localStorage.getItem('accessToken')
                 }})
-      setPostObject({...postObject, postText: newPostText})
+        setPostObject({...postObject, postText: newPostText})
+      }
+      else alert("Enter a not null value")
     }
   }
 
@@ -104,10 +110,11 @@ function Post() {
               }
           }}>
             {postObject.postText}</div>
-          <div className="footer">{postObject.username}
+          <div className="footer">
+              {postObject.username}
               {authState.username === postObject.username && (
-                <button onClick={ () =>{deletePost(postObject.id)}}>Delete</button>)
-              }
+                <button onClick={ () =>{deletePost(postObject.id)}}>Delete</button> 
+              )}
             
           </div>    
         </div>
@@ -116,7 +123,7 @@ function Post() {
         <div className="addCommentContainer">
           <input
             type="text"
-            placeholder="Comment..."
+            placeholder="Add a Comment"
             autoComplete="off"
             value={newComment}
             onChange={(event) => {
@@ -130,12 +137,12 @@ function Post() {
             return (
               <div key={key} className="comment">
                 {comment.commentBody}
-                <label> Username : {comment.username}</label>
-                {authState.username === comment.username &&(
-                  <label onClick={ () =>{
-                    //deleteComment(comment.id)
-                  }}/>
-                  )}
+                <label className = "user">{comment.username}</label>
+                {/* {authState.username === comment.username &&(
+                  <button onClick={() =>{
+                    deleteComment(comment.id)
+                  }}>Delete</button>
+                )} */}
               </div>
             );
           })}

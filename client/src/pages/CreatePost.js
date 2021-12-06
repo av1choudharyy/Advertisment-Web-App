@@ -20,7 +20,7 @@ function CreatePost() {
 
     const validationSchema = Yup.object().shape({
         title: Yup.string().required("You must input a title"),
-        postText: Yup.string().required(),
+        postText: Yup.string().required("Description is a necessary field"),
     })
     const onSubmit = (data) => {
         axios

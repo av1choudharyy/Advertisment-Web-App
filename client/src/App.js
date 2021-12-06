@@ -66,7 +66,7 @@ function App() {
                             )}
                         </div>
                         <div className="loggedInContainer">
-                            <h1>{authState.username} </h1>
+                            <h2>{authState.username} </h2>
                             {authState.status && <Link to ="/login" onClick={logout}> Logout</Link>}
                         </div> 
                     </div>
