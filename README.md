@@ -79,8 +79,8 @@ Start the server
 ![](Screenshots/createPost.png)
 ![](Screenshots/post.png)
 ![](Screenshots/comment.png)
-![](Screenshots/editPost.png)
 ![](Screenshots/editTitle.png)
+![](Screenshots/editPost.png)
 
 
 
